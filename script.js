@@ -17,12 +17,16 @@ function clickHandler() {
 }
 
 function checkLucky() {
-  if (lucky.value > 0) {
+  if (lucky.value == "" || isNaN(lucky.value)) {
+    result = "Can't be empty! 🛒";
+  } else if (lucky.value > 0) {
     if (x % lucky.value == 0) {
       result = " Your Birthday is lucky! 🥘";
     } else {
       result = "Your Birthday is Not That Lucky! 🥦";
     }
-    document.querySelector("#input3").innerText = result;
+  } else {
+    result = "Please enter positive value! 😥";
   }
+  document.querySelector("#input3").innerText = result;
 }
